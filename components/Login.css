@@ -1,0 +1,15 @@
+.loginPanel{
+    position: absolute;
+    z-index: 100;
+    background-color: rgba(71, 16, 16, 0.438);
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginSection {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--red-milfshakes);
+}

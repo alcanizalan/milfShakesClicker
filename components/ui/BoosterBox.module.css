@@ -1,0 +1,56 @@
+.containerForButtons{
+    width: 95%;
+    height: auto;
+    background-color: var(--rojo-oscuro);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    padding: 10px 4px;
+    border-bottom: 3px solid rgb(148, 24, 24);
+    justify-content: space-evenly;
+    margin-top: 7px;
+}
+
+.shopItem{
+    height: 70px;
+    width: 70px;
+    border: none;
+    background-color: var(--rojo-oscuro)
+}
+
+.imgShop{
+    height: 100%; 
+    width: 100%;
+}
+
+.mensageBotones{
+    position: relative;
+}
+
+.mensage{
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    z-index: 10;
+    transform: translateX(-50%);
+    background: rgba(116, 11, 11);
+    border: 1px solid white;
+    color: white;
+    padding: 5px 10px;
+    white-space: nowrap;
+    display: none;
+}
+
+.show{
+    display: inline-block;
+}
+
+.buttonActive{
+    filter: grayscale(1);
+}
+
+.costImg{
+    height: 15px;
+    width: 15px;
+    margin-left: 5px;
+}

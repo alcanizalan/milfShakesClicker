@@ -1,0 +1,7 @@
+.sectionMain{
+    display: grid;
+    grid-template-columns: 2.4fr 5fr 2fr;
+    grid-template-rows: 30px 1fr;
+    height: 100vh;
+    font-family: "Geologica", serif;
+}

@@ -1,0 +1,7 @@
+.sectionUpgrades{
+    background-color: var(--red-milfshakes);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+

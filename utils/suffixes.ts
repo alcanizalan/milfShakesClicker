@@ -1,0 +1,1 @@
+export const thousandSuffixes: Array<string> = ["", "K", "M", "B", "T", "Qa", "Qi", "S", "Oc", "No", "D"];
