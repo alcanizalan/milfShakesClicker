@@ -1,5 +1,7 @@
 import {DropType} from '../types/game'
 
+
+
 export const dropsData: DropType[] = [
     { //drop 1
       drop_id: 1,
@@ -8,7 +10,7 @@ export const dropsData: DropType[] = [
       autoGain: 0.5, 
       active: false, 
       level: 0,
-      image: '../public/drops/drops_1.png',
+      image: '/drops/drops_1.png',
     },
     { //drop 2
       drop_id: 2,
@@ -17,7 +19,7 @@ export const dropsData: DropType[] = [
       autoGain: 6, 
       active: false, 
       level: 0,
-      image: '../public/drops/drops_2.png',
+      image: '/drops/drops_2.png',
     },
     { //drop 3
       drop_id: 3,
@@ -26,7 +28,7 @@ export const dropsData: DropType[] = [
       autoGain: 32, 
       active: false, 
       level: 0, 
-      image: '../public/drops/drops_3.png'
+      image: '/drops/drops_3.png'
     },
     { //drop 4
       drop_id: 4,
@@ -35,7 +37,7 @@ export const dropsData: DropType[] = [
       autoGain: 102, 
       active: false, 
       level: 0, 
-      image: '../public/drops/drops_4.png'
+      image: '/drops/drops_4.png'
     },
     { //drop 5
       drop_id: 5,
@@ -44,7 +46,7 @@ export const dropsData: DropType[] = [
       autoGain: 564, 
       active: false, 
       level: 0, 
-      image: '../public/drops/drops_5.png'
+      image: '/drops/drops_5.png'
     },
     { //drop 6
       drop_id: 6,
@@ -53,7 +55,7 @@ export const dropsData: DropType[] = [
       autoGain: 1660, 
       active: false, 
       level: 0, 
-      image: '../public/drops/drops_6.png'
+      image: '/drops/drops_6.png'
     },
     { //drop 7
       drop_id: 7,
@@ -62,6 +64,6 @@ export const dropsData: DropType[] = [
       autoGain: 12210, 
       active: false, 
       level: 0, 
-      image: '../public/drops/drops_7.png'
+      image: '/drops/drops_7.png'
     },
 ]

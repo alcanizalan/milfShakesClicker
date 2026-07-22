@@ -5,11 +5,25 @@ import styles from './BoosterSection.module.css'
 
 import { BoosterType } from '@/types/game'
 
+import BoosterButton from './ui/BoosterButton'
+
 export default function BoosterSection () {
+    const boosters = useGameStore((state) => state.boosters);
 
     return(
         <section className={styles.sectionUpgrades}>
-            
+            {
+                boosters.map((booster: BoosterType) => {
+                    return(
+                        <BoosterButton
+                            key={booster.booster_id}
+                            boosterImage={booster.image}
+                            boosterCost={booster.cost}
+                            boosterActive={booster.active}
+                        />
+                    )
+                })
+            }
         </section>
     )
 }
