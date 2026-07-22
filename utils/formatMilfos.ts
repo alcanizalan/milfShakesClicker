@@ -1,13 +1,13 @@
 import {thousandSuffixes} from "./suffixes"
 
-export function formatCost(cost: number, suffixes: Array<string>) {
+export function formatMilfos(cost: number) {
     let digits: number = 0;
 
     while (cost >= 1000){
         cost = cost / 1000;
         digits = digits + 1;
     } 
-    const suffix: string = suffixes[digits];
+    const suffix: string = thousandSuffixes[digits];
     if (digits>=1){
       cost = Math.floor(cost*100)/100
     }else{

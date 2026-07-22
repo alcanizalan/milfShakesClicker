@@ -1,15 +1,23 @@
 import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
 
+import { calculateMilfosPerClick, calculateMilfosPerSecond } from '@/utils/calculateStats';
+import {dropsData as INITIAL_DROPS} from '@/data/dropsData';
+import {boosterData as INITIAL_BOOSTERS} from '@/data/boostersData';
+import {BoosterType, DropType} from '@/types/game';
+
 interface GameState {
     milfos: number;
-    purchasedBoosters: number[];
-    purchasedDrops: number[];
+    boosters: BoosterType[];
+    drops: DropType[];
 
-    clickShake: () => void;
+    MPC: () => number;
+    MPS: () => number;
+
+    clickMilfo: () => void;
     addPasiveMilfos: (amount: number) => void;
     buyBooster: (booster_id: number, cost: number, MPC: number) => boolean;
-    buyDrop: (drop_id: number, cost: number, MPS: number) => boolean;
+    buyDrop: (drop_id: number) => boolean;
     resetGame: () => void;
 }
 
@@ -17,44 +25,30 @@ export const useGameStore = create<GameState>()(
     persist(
         (set, get) => ({
             milfos: 0,
-            purchasedBoosters: [],
-            purchasedDrops: [],
+            boosters: INITIAL_BOOSTERS,
+            drops: INITIAL_DROPS,
 
-            clickShake: () => set((state) => ({milfos: state.milfos + 1,})),
+            MPC: () => calculateMilfosPerClick(),
+            MPS: () => calculateMilfosPerSecond(get().drops),
 
-            addPasiveMilfos: (amount) => set((state) => ({milfos: state.milfos + amount})),
+            clickMilfo: () => set((state) => ({milfos: state.milfos + get().MPC()})),
 
-            buyBooster: (booster_id, cost, MPC) => {
-                const {milfos, purchasedBoosters} = get();
+            addPasiveMilfos: (MPS) => set((state) => ({milfos: state.milfos + MPS})),
 
-                if (milfos >= cost){
-                    set({
-                        milfos: milfos - cost,
-                        purchasedBoosters: [...purchasedBoosters, booster_id]
-
-                    })
-                    return true;
-                }
-                return false;
+            buyBooster: (booster_id, cost) => {
+                const {milfos, boosters} = get();
+                
             },
 
-            buyDrop: (drop_id, cost) => {
-                const {milfos, purchasedDrops} = get();
+            buyDrop: (drop_id) => {
+                const {milfos, drops} = get();
 
-                if (milfos >= cost && !purchasedDrops.includes(drop_id)){
-                    set({
-                        milfos: milfos - cost,
-                        purchasedDrops: [...purchasedDrops, drop_id]
-                    })
-                    return true;
-                }
-                return false;
             },
 
             resetGame: () => set({
                 milfos: 0,
-                purchasedBoosters: [],
-                purchasedDrops: [],
+                boosters: INITIAL_BOOSTERS,
+                drops: INITIAL_DROPS,
             })
             
         }),

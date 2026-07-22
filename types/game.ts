@@ -1,6 +1,7 @@
 import { StaticImageData } from "next/image";
 
 export interface DropType{
+  drop_id: number;
   name: string;
   cost: number;
   autoGain: number;

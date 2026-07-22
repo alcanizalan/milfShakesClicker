@@ -1,19 +1,18 @@
 import styles from './DropButton.module.css'
 
+import {formatMilfos} from '@/utils/formatMilfos'
 
-export default function Drop ({dropImage, dropName, dropCost, dropActive, dropLevel, onClick, thousandSuffixes, formatCost}) {
+export default function Drop ({dropId, dropImage, dropName, dropCost, dropActive, dropLevel, buyOrUpdateDrop}: {dropId: number, dropImage: string, dropName: string, dropCost: number, dropActive: boolean, dropLevel: number, buyOrUpdateDrop: () => void}) {
     const buttonClass = dropActive ? styles.dropNotBlocked : styles.dropBlocked;
 
-    const formatedCost = formatCost(dropCost, thousandSuffixes);
-
-    const priceResponsive = dropActive != true ? "???" : formatedCost;
+    const priceResponsive = dropActive != true ? "???" : formatMilfos(dropCost);
     const nameResponsive = dropActive != true ? "???" : dropName;
     const levelResponsive = dropActive != true ? "" : dropLevel;
 
     return(
-        <button className={styles.divLevels} onClick={onClick}>
+        <button className={styles.divLevels} onClick={buyOrUpdateDrop}>
             <div className={buttonClass}>
-                <p>{formatedCost}</p>
+                <p>{formatMilfos(dropCost)}</p>
                 <img src="../assets/mpoints.png" alt="" />
             </div>
             <div className={styles.level}>

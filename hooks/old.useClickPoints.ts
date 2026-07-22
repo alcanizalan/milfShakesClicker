@@ -1,7 +1,7 @@
 "use client"
 import { useState } from 'react'
 import { thousandSuffixes } from '../utils/suffixes.js'
-import { formatCost } from '../utils/formatCost.js'
+import { formatCost } from '../utils/formatMilfos.js'
 
 export function useClickPoints(){
     const formatedPoints = formatCost(milfoPoints, thousandSuffixes);
