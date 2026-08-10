@@ -11,7 +11,7 @@ export default function BoosterSection () {
     const boosters = useGameStore((state) => state.boosters);
 
     return(
-        <section className={styles.sectionUpgrades}>
+        <section className={styles.boosterSection}>
             {
                 boosters.map((booster: BoosterType) => {
                     return(
@@ -20,6 +20,7 @@ export default function BoosterSection () {
                             boosterImage={booster.image}
                             boosterCost={booster.cost}
                             boosterActive={booster.active}
+                            handleClickButton={() => useGameStore.getState().buyBooster(booster.booster_id)}
                         />
                     )
                 })

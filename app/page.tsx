@@ -18,8 +18,7 @@ export default function Main() {
     <div className={styles.sectionMain}>
       <Login alternarLogin={alternarLogin} setAlternarLogin={setAlternarLogin} />
       <Header alternarLogin={alternarLogin} setAlternarLogin={setAlternarLogin} />
-      <DropsSection 
-        />
+      <DropsSection />
       <MilfoSection />
       <UpgradesSection />
     </div>

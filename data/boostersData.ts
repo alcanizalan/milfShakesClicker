@@ -5,7 +5,7 @@ export const boosterData: BoosterType[] = [
     {
         booster_id: 1,
         image: '/boosters/buttonMilfoLvl1.png',
-        active: false,
+        active: true,
         cost: 100
     },
     {
