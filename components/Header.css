@@ -4,33 +4,15 @@
     color: white;
     font-weight: 800;
     width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 30px;
+    display: flex;
     justify-content: center;
     align-items: center;
+
+    & .divMessageNotOfficial{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 } 
 
-.divClean{
-    grid-area: 1/1/2/2;
-}
 
-.divMessageNotOfficial{
-    grid-area: 1/2/2/3;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.divIconoProfile {
-    grid-area: 1/3/2/4;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    justify-self: right;
-}
-
-#iconoProfile {
-    height: 28px;
-    width: 28px;
-}

@@ -1,3 +1,5 @@
+"use client"
+
 import styles from './MilfoSection.module.css'
 
 import milfoLayer1 from '../public/milfo/milfoclickv1_capa1.png'
@@ -12,6 +14,7 @@ import { calculateMilfosPerClick } from '@/utils/calculateStats'
 
 import {useGameStore} from '@/store/useGameStore'
 import { formatMilfos } from '@/utils/formatMilfos'
+import usePlaySound from '@/hooks/usePlaySound'
 
 
 import Image from 'next/image'
@@ -20,13 +23,14 @@ export default function MilfoSection () {
     const milfoPoints = useGameStore((state) => state.milfos);
     const clickMilfo = useGameStore((state) => state.clickMilfo);
     const MPC = useGameStore((state) => state.MPC);
+    const handleClick = usePlaySound(clickMilfo)
 
     return(
         <section className={styles.sectionMilfo}>
-            <div className={styles.hitBox} onClick={clickMilfo}></div>
-            <div className={styles.sectionClickableMilfo}>
-                <div id="divError">
-                    <p id="pError"></p>
+            <div className={styles.hitBox} onClick={handleClick}></div>
+            <div className={styles.sectionMilfoLayers}>
+                <div className={styles.divError}>
+                    <p className={styles.pError}></p>
                 </div>
                 <Image src={milfoLayer1} className={`${styles.milfoImg} ${styles.milfoImg1}`} alt="" />
                 <Image src={milfoLayer2} className={`${styles.milfoImg} ${styles.milfoImg2}`} alt="" />
@@ -37,7 +41,7 @@ export default function MilfoSection () {
             </div>
             <div className={styles.sectionCounter}>
                 <p className={styles.milfoPoints}>{milfoPoints}</p>
-                <Image src={milfoPointsIcon} className={styles.milfoPoints} alt="" />
+                <Image src={milfoPointsIcon}  alt="" height={24} width={24} />
             </div>
         </section>
     )

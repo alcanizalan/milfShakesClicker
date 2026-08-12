@@ -7,8 +7,10 @@
         display: inline-block;
     }
 
-    & .mensage{
+    & .message{
         position: absolute;
+        display: flex;
+        justify-content: center;
         top: 90%;
         left: 50%;
         z-index: 10;
@@ -20,24 +22,16 @@
         white-space: nowrap;
         display: none;
 
-        & .costImg{
-            height: 15px;
-            width: 15px;
+        & .batidoCoin{
             margin-left: 5px;
         }
     }
+
+    &:hover .message{
+        display: inline-block;
+    }
 }
 
-.boosterButton:hover .mensage{
-    display: inline-block;
-}
-
-.shopItem{
-    height: 70px;
-    width: 70px;
-    border: none;
-    background-color: var(--rojo-oscuro)
-}
 
 .buttonActive{
     filter: grayscale(1);

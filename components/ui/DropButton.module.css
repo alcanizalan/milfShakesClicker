@@ -1,4 +1,4 @@
-.divLevels{
+.dropButton{
     min-width: 300px;
     width: 90%;
     background-color: var(--white-shake);
@@ -8,100 +8,97 @@
     border: none;
     border-bottom: 5px solid #FFB9B9;
     transition: background-color .2s ease, border .2s ease, color .2s ease;
+
+    & .dropBlocked{
+        z-index: 5; 
+        width: 100%; 
+        height: 100%; 
+        background-color: rgba(70, 11, 11, 0.795); 
+        position: absolute; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-family: "Geologica", sans-serif;
+        font-weight: 700;
+        font-size: 36px;
+    }
+
+    & .dropNotBlocked{
+        display: none;
+    }
+
+    & .dropLevel{
+        height: 80px;
+        width: 80px;
+        position: absolute;
+        left: 82%;
+        top: -3px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: rgb(255, 255, 255);
+        font-size: 18px;
+        background: var(--red-milfshakes);
+        border-top: 3px solid white;
+        border-radius: 20px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        font-family: "Geologica", sans-serif;
+        font-weight: 700;
+        clip-path: polygon(20% 0%, 80% 0%, 80% 100%, 50% 80%, 20% 100%);
+        transition: height .3s ease;
+        z-index: 10;
+
+        
+    }
+
+    & .dropInfo{
+
+        & .dropImg{
+            width: auto;
+            height: 70%;
+            margin: 15px 10px 5px 10px;
+            overflow: hidden;
+        }
+
+        & .dropNames{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10px;
+            color: var(--red-milfshakes);
+            font-size: 18px;
+            font-family: "Geologica", sans-serif;
+            font-weight: 700;
+
+            & .unknownLevel{
+                display: flex; 
+                align-items: center;
+            }
+        }
+
+ 
+    }
+
+    &:hover{
+        background-color: #d8d8d8;
+        border-bottom: 5px solid #b3b3b3;
+        color: var(--red-milfshakes);
+    }
+
+    &:hover .dropLevel{
+        height: 100px;
+    }
 }
 
-.divLevels:hover{
-    background-color: #d8d8d8;
-    border-bottom: 5px solid #b3b3b3;
-    color: var(--red-milfshakes);
-}
-.dropBlocked{
-    z-index: 5; 
-    width: 100%; 
-    height: 100%; 
-    background-color: rgba(70, 11, 11, 0.795); 
-    position: absolute; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-family: "Geologica", sans-serif;
-    font-weight: 700;
-    font-size: 36px;
-}
-
-.dropNotBlocked{
-display: none;
-}
-
-.dropBlocked img{
-    height: 50px;
-}
-
-.dropBought{
-    display: none;
-}
-
-.level{
-    height: 80px;
-    width: 80px;
-    position: absolute;
-    left: 82%;
-    top: -3px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: rgb(255, 255, 255);
-    font-size: 18px;
-    background: var(--red-milfshakes);
-    border-top: 3px solid white;
-    border-radius: 20px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    font-family: "Geologica", sans-serif;
-    font-weight: 700;
-    clip-path: polygon(20% 0%, 80% 0%, 80% 100%, 50% 80%, 20% 100%);
-    transition: height .3s ease;
-    z-index: 10;
-}
-
-.dropImg{
-    width: auto;
-    height: 70%;
-    margin: 15px 10px 5px 10px;
-    overflow: hidden;
-}
-
-.dropImg img{
-    object-fit: cover;
-    width: 100%;
-}
 
 
-.divLevels:hover .level{
-    height: 100px;
-}
 
-.dropNames{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 10px;
-    color: var(--red-milfshakes);
-    font-size: 18px;
-    font-family: "Geologica", sans-serif;
-    font-weight: 700;
-}
 
-.unknownLevel{
-    display: flex; 
-    align-items: center;
-}
-.unknownLevelp{
-    align-self: center;
-}
 
-.unknownLevelImg{
-    height: 24px;
-}
+
+
+
+
