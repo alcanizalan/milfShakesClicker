@@ -24,6 +24,7 @@ export default function MilfoSection () {
     const clickMilfo = useGameStore((state) => state.clickMilfo);
     const MPC = useGameStore((state) => state.MPC);
     const handleClick = usePlaySound(clickMilfo)
+    const formattedMilfos = formatMilfos(milfoPoints);
 
     return(
         <section className={styles.sectionMilfo}>
@@ -40,7 +41,7 @@ export default function MilfoSection () {
                 <Image src={milfoLayer6} className={`${styles.milfoImg} ${styles.milfoImg6}`} alt="" />
             </div>
             <div className={styles.sectionCounter}>
-                <p className={styles.milfoPoints}>{milfoPoints}</p>
+                <p className={styles.milfoPoints}>{formattedMilfos}</p>
                 <Image src={milfoPointsIcon}  alt="" height={24} width={24} />
             </div>
         </section>
