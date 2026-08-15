@@ -1,4 +1,5 @@
 .sectionMilfo{
+    grid-area: 2/2/3/3;
     position: relative;
     display: grid;
     grid-template-columns: 1fr;

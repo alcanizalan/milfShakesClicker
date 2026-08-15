@@ -16,11 +16,11 @@ export default function BoosterSection () {
                 boosters.map((booster: BoosterType) => {
                     return(
                         <BoosterButton
-                            key={booster.booster_id}
+                            key={booster.id}
                             boosterImage={booster.image}
                             boosterCost={booster.cost}
                             boosterActive={booster.active}
-                            handleClickButton={() => useGameStore.getState().buyBooster(booster.booster_id)}
+                            handleClickButton={() => useGameStore.getState().buyBooster(booster.id)}
                         />
                     )
                 })

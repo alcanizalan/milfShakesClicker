@@ -7,7 +7,9 @@ import mPointsRed from '../../public/points/mpoints2Red.png'
 
 import Image from 'next/image';
 
-export default function Drop ({dropId, dropImage, dropName, dropCost, dropActive, dropLevel, buyOrUpdateDrop}: {dropId: number, dropImage: string, dropName: string, dropCost: number, dropActive: boolean, dropLevel: number, buyOrUpdateDrop: () => void}) {
+import { StaticImageData } from "next/image";
+
+export default function Drop ({dropId, dropImage, dropName, dropCost, dropActive, dropLevel, buyOrUpdateDrop}: {dropId: number, dropImage: string | StaticImageData, dropName: string, dropCost: number, dropActive: boolean, dropLevel: number, buyOrUpdateDrop: () => void}) {
     const buttonStatus = dropActive ? styles.dropNotBlocked : styles.dropBlocked;
 
     const priceResponsive = dropActive != true ? "???" : formatMilfos(dropCost);
@@ -15,7 +17,7 @@ export default function Drop ({dropId, dropImage, dropName, dropCost, dropActive
     const levelResponsive = dropActive != true ? "" : dropLevel;
 
     return(
-        <button className={styles.dropButton} onClick={buyOrUpdateDrop}>
+        <button className={styles.dropButton} onClick={() => buyOrUpdateDrop()}>
             <div className={styles.dropLevel}>
                 <p>{levelResponsive}</p>
             </div>

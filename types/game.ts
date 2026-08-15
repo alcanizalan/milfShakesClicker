@@ -1,7 +1,7 @@
 import { StaticImageData } from "next/image";
 
 export interface DropType{
-  drop_id: number;
+  id: number;
   name: string;
   cost: number;
   autoGain: number;
@@ -11,7 +11,7 @@ export interface DropType{
 }
 
 export interface BoosterType{
-    booster_id: number;
+    id: number;
     image: string | StaticImageData;
     active: boolean;
     cost: number;

@@ -19,13 +19,13 @@ export default function DropsSection () {
         drops.map((drop, key) => (
           <Drop
             key={key}
-            dropId={drop.drop_id}
+            dropId={drop.id}
             dropName={drop.name}
             dropImage={drop.image}
             dropCost={drop.cost}
             dropActive={drop.active}
             dropLevel={drop.level}
-            buyOrUpdateDrop={() => buyOrUpdateDrop(key)}
+            buyOrUpdateDrop={() => buyOrUpdateDrop(drop.id)}
             />
         ))
       }

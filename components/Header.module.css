@@ -1,0 +1,32 @@
+.headerAdvise{
+    background-color: var(--rojo-oscuro);
+    color: white;
+    font-weight: 800;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: 1/1/2/4;
+
+    & .divMessageNotOfficial{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    & .binButton{
+        position: absolute;
+        left: 10px;
+        display: flex;
+        background: none;
+        border: none;
+        cursor: pointer;
+        
+        & .bin{
+
+        }
+    }
+    
+} 
+
+

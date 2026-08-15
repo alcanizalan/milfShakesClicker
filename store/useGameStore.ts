@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
 
 import { calculateMilfosPerClick, calculateMilfosPerSecond } from '@/utils/calculateStats';
+import { useGameLoop } from '@/hooks/useGameLoop';
 import {dropsData as INITIAL_DROPS} from '@/data/dropsData';
 import {boosterData as INITIAL_BOOSTERS} from '@/data/boostersData';
 import {BoosterType, DropType} from '@/types/game';
@@ -28,21 +29,80 @@ export const useGameStore = create<GameState>()(
             boosters: INITIAL_BOOSTERS,
             drops: INITIAL_DROPS,
 
-            MPC: () => calculateMilfosPerClick(),
+            MPC: () => calculateMilfosPerClick(get().boosters),
             MPS: () => calculateMilfosPerSecond(get().drops),
 
             clickMilfo: () => set((state) => ({milfos: state.milfos + get().MPC()})),
 
-            addPasiveMilfos: (MPS) => set((state) => ({milfos: state.milfos + MPS})),
+            addPasiveMilfos: (MPS) => {
+                set((state) => {
+                    return {milfos: state.milfos + MPS};
+                });
+            },
 
-            buyBooster: (booster_id, cost) => {
+            buyBooster: (booster_id) => {
                 const {milfos, boosters} = get();
+                const boosterComprado = boosters.find(booster => booster.id === booster_id);
                 
+                if (!boosterComprado) return false;
+                if (milfos < boosterComprado.cost) return false;
+
+                set((state) => {
+                    const updatedBooster = state.boosters.map((booster) => {
+                        if (booster.id !== booster_id) return booster;
+                        if (booster.active) return booster;
+
+                        return {
+                            ...booster,
+                            active: true,
+                        }
+                    })
+
+                    return {
+                        milfos: state.milfos - boosterComprado.cost,
+                        boosters: updatedBooster,
+                    }
+                })
+
+                return true;
             },
 
             buyDrop: (drop_id) => {
                 const {milfos, drops} = get();
+                const dropComprado = drops.find(drop => drop.id === drop_id);
 
+                if (!dropComprado) return false;
+                if (milfos < dropComprado.cost) return false;
+
+                set((state) => {
+                    const updatedDrops = state.drops.map((drop) => {
+                        if (drop.id !== drop_id) return drop;
+
+                        if (!drop.active) {
+                            return {
+                                ...drop,
+                                active: true,
+                                level: drop.level + 1,
+                                cost: Math.round(drop.cost * 1.15),
+                            };
+                        }
+
+                        return {
+                            ...drop,
+                            level: drop.level + 1,
+                            cost: Math.round(drop.cost * 1.15),
+                        };
+                    });
+
+                    calculateMilfosPerSecond(updatedDrops);
+
+                    return {
+                        milfos: state.milfos - dropComprado.cost,
+                        drops: updatedDrops,
+                    };
+                });
+
+                return true;
             },
 
             resetGame: () => set({

@@ -1,15 +1,14 @@
 import { DropType, BoosterType } from '../types/game'
 
-import { dropsData } from '../data/dropsData'
 import { boosterData } from '../data/boostersData'
 
 
 export function calculateMilfosPerSecond(drops: DropType[]): number{
     let MPS: number = 0;
 
-    dropsData.forEach((drop) => {
+    drops.forEach((drop) => {
         if(drop.level > 0){
-            MPS = MPS + (drop.level * drop.autoGain)
+            MPS = MPS + (drop.autoGain * drop.level);
         }
     })
     console.log("MPS: ", MPS)
@@ -17,10 +16,10 @@ export function calculateMilfosPerSecond(drops: DropType[]): number{
 }
 
 
-export function calculateMilfosPerClick(): number{
+export function calculateMilfosPerClick(boosters: BoosterType[]): number{
     let MPC: number = 1;
 
-    boosterData.forEach((booster) => {
+    boosters.forEach((booster) => {
         if(booster.active == true){
             MPC = MPC * 2
         }
