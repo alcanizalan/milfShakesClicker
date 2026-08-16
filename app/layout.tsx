@@ -10,7 +10,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "MilfShakes Clicker | Not Official Website",
   description: "Made by one fan",
-  favicon: "/favicon.ico",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
