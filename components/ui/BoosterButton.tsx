@@ -7,7 +7,7 @@ import { motion } from "motion/react"
 
 import styles from './BoosterButton.module.css'
 
-export default function PointsButton({ boosterImage, boosterCost, boosterActive, handleClickButton}: {key: number, boosterImage: string | StaticImageData, boosterCost: number, boosterActive: boolean, handleClickButton: () => void}) {
+export default function BoosterButton({ boosterId, boosterImage, boosterCost, boosterActive, handleClickButton}: {boosterId: number, boosterImage: string | StaticImageData, boosterCost: number, boosterActive: boolean, handleClickButton: () => void}) {
     return(
         <button 
             onClick={handleClickButton}

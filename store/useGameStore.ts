@@ -18,7 +18,7 @@ interface GameState {
 
     clickMilfo: () => void;
     addPasiveMilfos: (amount: number) => void;
-    buyBooster: (booster_id: number, cost: number, MPC: number) => boolean;
+    buyBooster: (booster_id: number) => boolean;
     buyDrop: (drop_id: number) => boolean;
     resetGame: () => void;
 }

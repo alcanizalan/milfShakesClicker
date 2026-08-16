@@ -11,6 +11,7 @@ import BoosterButton from './ui/BoosterButton'
 
 export default function BoosterSection () {
     const boosters = useGameStore((state) => state.boosters);
+    const buyNewBooster = useGameStore((state) => state.buyBooster);
 
     return(
         <section className={styles.boosterSection}>
@@ -18,14 +19,15 @@ export default function BoosterSection () {
                 <Image src="/icons/lock_icon.png" alt="Locked" width={42} height={42} />
             </div>
             {
-                boosters.map((booster: BoosterType) => {
+                boosters.map((booster: BoosterType, key: number) => {
                     return(
                         <BoosterButton
-                            key={booster.id}
+                            key={key}
+                            boosterId={booster.id}
                             boosterImage={booster.image}
                             boosterCost={booster.cost}
                             boosterActive={booster.active}
-                            handleClickButton={() => useGameStore.getState().buyBooster(booster.id)}
+                            handleClickButton={() => buyNewBooster(booster.id)}
                         />
                     )
                 })
