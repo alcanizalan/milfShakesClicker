@@ -11,6 +11,7 @@ interface GameState {
     milfos: number;
     boosters: BoosterType[];
     drops: DropType[];
+    totalLevels: number;
 
     MPC: () => number;
     MPS: () => number;
@@ -28,11 +29,14 @@ export const useGameStore = create<GameState>()(
             milfos: 0,
             boosters: INITIAL_BOOSTERS,
             drops: INITIAL_DROPS,
+            totalLevels: 0,
 
             MPC: () => calculateMilfosPerClick(get().boosters),
             MPS: () => calculateMilfosPerSecond(get().drops),
 
-            clickMilfo: () => set((state) => ({milfos: state.milfos + get().MPC()})),
+            
+            //clickMilfo: () => set((state) => ({milfos: state.milfos + get().MPC()})),
+            clickMilfo: () => set((state) => ({milfos: state.milfos + get().MPS()+1})),
 
             addPasiveMilfos: (MPS) => {
                 set((state) => {
@@ -68,7 +72,7 @@ export const useGameStore = create<GameState>()(
             },
 
             buyDrop: (drop_id) => {
-                const {milfos, drops} = get();
+                const {milfos, drops, totalLevels} = get();
                 const dropComprado = drops.find(drop => drop.id === drop_id);
 
                 if (!dropComprado) return false;
@@ -94,11 +98,12 @@ export const useGameStore = create<GameState>()(
                         };
                     });
 
-                    calculateMilfosPerSecond(updatedDrops);
 
+                    calculateMilfosPerSecond(updatedDrops);
                     return {
                         milfos: state.milfos - dropComprado.cost,
                         drops: updatedDrops,
+                        totalLevels: totalLevels + 1,
                     };
                 });
 
@@ -109,6 +114,7 @@ export const useGameStore = create<GameState>()(
                 milfos: 0,
                 boosters: INITIAL_BOOSTERS,
                 drops: INITIAL_DROPS,
+                totalLevels: 0,
             })
             
         }),

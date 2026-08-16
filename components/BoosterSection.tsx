@@ -1,5 +1,7 @@
 import {useState} from 'react'
+import Image from 'next/image'
 import { useGameStore } from '@/store/useGameStore'
+
 
 import styles from './BoosterSection.module.css'
 
@@ -12,6 +14,9 @@ export default function BoosterSection () {
 
     return(
         <section className={styles.boosterSection}>
+            <div className={styles.blocked}>
+                <Image src="/icons/lock_icon.svg" alt="Locked" width={42} height={42} />
+            </div>
             {
                 boosters.map((booster: BoosterType) => {
                     return(

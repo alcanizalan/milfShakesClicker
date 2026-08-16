@@ -11,7 +11,6 @@ export function calculateMilfosPerSecond(drops: DropType[]): number{
             MPS = MPS + (drop.autoGain * drop.level);
         }
     })
-    console.log("MPS: ", MPS)
     return MPS;
 }
 
@@ -24,6 +23,5 @@ export function calculateMilfosPerClick(boosters: BoosterType[]): number{
             MPC = MPC * 2
         }
     })
-    console.log("MPC: ", MPC)
     return MPC;
 }
