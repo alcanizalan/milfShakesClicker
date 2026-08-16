@@ -5,7 +5,6 @@ import Header from '../components/Header'
 import DropsSection from '../components/DropSection'
 import MilfoSection from '../components/MilfoSection'
 import UpgradesSection from '../components/BoosterSection'
-import Login from '../components/Login'
 
 import { useGameStore } from '@/store/useGameStore'
 import { useGameLoop } from '@/hooks/useGameLoop'
