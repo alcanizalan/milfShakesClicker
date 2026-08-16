@@ -1,6 +1,6 @@
 import './Login.css'
 
-
+/*
 export default function Login({alternarLogin, setAlternarLogin}) {
 
     return (
@@ -17,3 +17,5 @@ export default function Login({alternarLogin, setAlternarLogin}) {
         )
     )
 }
+
+*/
