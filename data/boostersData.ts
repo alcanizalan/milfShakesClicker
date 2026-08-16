@@ -82,7 +82,7 @@ export const boosterData: BoosterType[] = [
     },
     {
         id: 14,
-        image: '/boosters/buttonWoolvl4.png',
+        image: '/boosters/buttonWoolLvl4.png',
         active: false,
         cost: 100
     },

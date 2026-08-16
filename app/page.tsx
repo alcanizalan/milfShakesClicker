@@ -22,7 +22,7 @@ export default function Main() {
 
   return (
     <div className={styles.sectionMain}>
-      <Login alternarLogin={alternarLogin} setAlternarLogin={setAlternarLogin} />
+      {/* <Login alternarLogin={alternarLogin} setAlternarLogin={setAlternarLogin} /> */}
       <Header />
       <DropsSection />
       <MilfoSection />

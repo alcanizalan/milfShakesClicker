@@ -7,11 +7,20 @@
     justify-content: center;
     align-items: center;
     grid-area: 1/1/2/4;
+    overflow: hidden;
 
     & .divMessageNotOfficial{
         display: flex;
         justify-content: center;
         align-items: center;
+
+        & .beta{
+            font-size: 12px;
+            margin-left: 5px;
+            color: var(--red-milfshakes);
+            background-color: white;
+            padding: 2px 5px;
+        }
     }
 
     & .binButton{

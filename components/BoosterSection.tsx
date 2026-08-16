@@ -15,7 +15,7 @@ export default function BoosterSection () {
     return(
         <section className={styles.boosterSection}>
             <div className={styles.blocked}>
-                <Image src="/icons/lock_icon.svg" alt="Locked" width={42} height={42} />
+                <Image src="/icons/lock_icon.png" alt="Locked" width={42} height={42} />
             </div>
             {
                 boosters.map((booster: BoosterType) => {
