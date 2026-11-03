@@ -21,6 +21,8 @@ interface GameState {
     buyBooster: (booster_id: number) => boolean;
     buyDrop: (drop_id: number) => boolean;
     resetGame: () => void;
+
+    adminAddPoints: (amount: number) => void;
 }
 
 export const useGameStore = create<GameState>()(
@@ -114,7 +116,9 @@ export const useGameStore = create<GameState>()(
                 boosters: INITIAL_BOOSTERS,
                 drops: INITIAL_DROPS,
                 totalLevels: 0,
-            })
+            }),
+
+            adminAddPoints: (amount) => set((state) => ({milfos: state.milfos + amount})),
             
         }),
         {

@@ -1,10 +1,10 @@
 "use client"
 import { useEffect, useState } from 'react'
 
-import Header from '../components/Header'
-import DropsSection from '../components/DropSection'
-import MilfoSection from '../components/MilfoSection'
-import UpgradesSection from '../components/BoosterSection'
+import Header from '../components/shared/header/Header'
+import DropsSection from '../components/shared/drops/DropSection'
+import MilfoSection from '../components/shared/milfo/MilfoSection'
+import UpgradesSection from '../components/shared/booster/BoosterSection'
 
 import { useGameStore } from '@/store/useGameStore'
 import { useGameLoop } from '@/hooks/useGameLoop'
@@ -20,12 +20,12 @@ export default function Main() {
   useGameLoop();
 
   return (
-    <div className={styles.sectionMain}>
+    <main className={styles.sectionMain}>
       {/* <Login alternarLogin={alternarLogin} setAlternarLogin={setAlternarLogin} /> */}
       <Header />
       <DropsSection />
       <MilfoSection />
       <UpgradesSection />
-    </div>
+    </main>
   )
 }

@@ -1,20 +1,45 @@
 @import "tailwindcss";
 
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: var(--font-inter);
-    font-weight: 400;
+@font-face {
+  font-family: "Redaction 50 Local";
+  src: url("/fonts/Redaction_50/Redaction50-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
-:root{
-    --red-milfshakes: rgb(239,20,33);
-    --rojo-oscuro: rgb(183,5,5);
-    --white-shake: #f3f3f3;
+@font-face {
+  font-family: "Redaction 50 Bold Local";
+  src: url("/fonts/Redaction_50/Redaction50-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
-main{
-    background-color: rgb(22, 22, 22);
-    height: 100vh;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-weight: 400;
+}
+
+:root {
+  /* Colors */
+  --red-milfshakes: rgb(239, 20, 33);
+  --rojo-oscuro: rgb(183, 5, 5);
+  --white-shake: #f3f3f3;
+
+  /* Fonts */
+  --redaction-50: 'Redaction 50 Local', sans-serif;
+  --redaction-50-bold: 'Redaction 50 Bold Local', sans-serif;
+  --font-size-small: 14px;
+  --font-size-medium: 18px;
+  --font-size-large: 24px;
+}
+
+main {
+  background-color: rgb(22, 22, 22);
+  height: 100vh;
+  font-family: var(--redaction-50-bold);
+  font-size: var(--font-size-medium);
 }
