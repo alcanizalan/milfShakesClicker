@@ -7,6 +7,7 @@
     flex-flow: column;
     border: none;
     border-bottom: 5px solid #FFB9B9;
+    outline: 5px solid black;
     transition: background-color .2s ease, border .2s ease, color .2s ease;
 
     & .dropBlocked{
@@ -21,6 +22,18 @@
         color: white;
         font-weight: 700;
         font-size: 36px;
+        gap: 5px;
+
+        & p{
+            filter: drop-shadow(3px 3px 0px black);
+            font-family: var(--silkscreen-regular);
+            letter-spacing: -3px;
+        }
+
+        & .imagePoints{
+            image-rendering: pixelated;
+
+        }
     }
 
     & .dropNotBlocked{
@@ -48,6 +61,12 @@
         clip-path: polygon(20% 0%, 80% 0%, 80% 100%, 50% 80%, 20% 100%);
         transition: height .3s ease;
         z-index: 10;
+        font-family: var(--silkscreen-regular);
+        letter-spacing: -3px;
+
+        & p{
+            filter: drop-shadow(2px 2px 0px black);
+        }
 
         
     }
@@ -60,6 +79,7 @@
             margin: 15px 10px 5px 10px;
             overflow: hidden;
             image-rendering: pixelated;
+            outline: 5px solid black;
         }
 
         & .dropNames{
@@ -74,10 +94,15 @@
             & .unknownLevel{
                 display: flex; 
                 align-items: center;
+                font-family: var(--silkscreen-regular);
+                letter-spacing: -3px;
+                gap: 5px;
+
+                & .imagePoints{
+                    image-rendering: pixelated;
+                }
             }
         }
-
- 
     }
 
     &:hover{

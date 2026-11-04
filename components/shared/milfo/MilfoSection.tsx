@@ -11,6 +11,8 @@ import {useGameStore} from '@/store/useGameStore'
 import { formatMilfos } from '@/utils/formatMilfos'
 import usePlaySound from '@/hooks/usePlaySound'
 
+import MPoints from '@/public/points/mpoints.png'
+
 
 import Image from 'next/image'
 
@@ -48,7 +50,7 @@ export default function MilfoSection () {
             </div>
             <div className={styles.sectionCounter} >
                 <p className={styles.milfoPoints}>{formattedMilfos}</p>
-                <Image src="/points/mpoints.png"  alt="" height={24} width={24} />
+                <Image className={styles.imagePoints} src={MPoints} alt="" height={24} width={24} />
             </div>
         </section>
     )

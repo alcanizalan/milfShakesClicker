@@ -16,6 +16,30 @@
   font-display: swap;
 }
 
+@font-face{
+  font-family: "PixelFont";
+  src: url("/fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face{
+  font-family: "Silkscreen";
+  src: url("/fonts/Silkscreen/Silkscreen-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face{
+  font-family: "Silkscreen Bold";
+  src: url("/fonts/Silkscreen/Silkscreen-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -32,6 +56,12 @@
   /* Fonts */
   --redaction-50: 'Redaction 50 Local', sans-serif;
   --redaction-50-bold: 'Redaction 50 Bold Local', sans-serif;
+
+  --pixel-font: 'PixelFont', sans-serif;
+
+  --silkscreen-regular: 'Silkscreen', sans-serif;
+  --silkscreen-bold: 'Silkscreen Bold', sans-serif;
+
   --font-size-small: 14px;
   --font-size-medium: 18px;
   --font-size-large: 24px;
@@ -40,6 +70,6 @@
 main {
   background-color: rgb(22, 22, 22);
   height: 100vh;
-  font-family: var(--redaction-50-bold);
+  font-family: var(--pixel-font);
   font-size: var(--font-size-medium);
 }

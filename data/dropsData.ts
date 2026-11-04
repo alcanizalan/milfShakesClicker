@@ -10,7 +10,7 @@ export const dropsData: DropType[] = [
       autoGain: 1, 
       active: false, 
       level: 0,
-      image: '/drops/pixel/drop_1.jpg',
+      image: '/drops/drops_1.png',
     },
     { //drop 2
       id: 2,

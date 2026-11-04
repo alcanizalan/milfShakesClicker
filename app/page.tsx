@@ -19,9 +19,38 @@ export default function Main() {
 
   useGameLoop();
 
+  useEffect(() => {
+    const audio = new Audio('/songs/background_song1.mp3');
+    audio.loop = true;
+    audio.volume = 0.0;
+    const startAfterInteraction = () => {
+      window.removeEventListener('pointerdown', startAfterInteraction);
+      window.removeEventListener('keydown', startAfterInteraction);
+      void audio.play().catch((error: unknown) => {
+        console.error('No se pudo reproducir la música de fondo.', error);
+      });
+    };
+
+    void audio.play().catch((error: unknown) => {
+      if (error instanceof DOMException && error.name === 'NotAllowedError') {
+        window.addEventListener('pointerdown', startAfterInteraction);
+        window.addEventListener('keydown', startAfterInteraction);
+        return;
+      }
+
+      console.error('No se pudo reproducir la música de fondo.', error);
+    });
+
+    return () => {
+      window.removeEventListener('pointerdown', startAfterInteraction);
+      window.removeEventListener('keydown', startAfterInteraction);
+      audio.pause();
+    };
+
+  }, []);
+
   return (
     <main className={styles.sectionMain}>
-      {/* <Login alternarLogin={alternarLogin} setAlternarLogin={setAlternarLogin} /> */}
       <Header />
       <DropsSection />
       <MilfoSection />

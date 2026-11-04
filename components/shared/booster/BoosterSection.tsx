@@ -15,9 +15,9 @@ export default function BoosterSection () {
 
     return(
         <section className={styles.boosterSection}>
-            <div className={styles.blocked}>
+            {/* <div className={styles.blocked}>
                 <Image src="/icons/lock_icon.png" alt="Locked" width={42} height={42} />
-            </div>
+            </div> */}
             {
                 boosters.map((booster: BoosterType, key: number) => {
                     return(

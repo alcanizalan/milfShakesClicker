@@ -7,8 +7,9 @@
     height: 40px;
     width: 40px;
 
-    .fallingShakeImage {
+    .fallingShakeImg {
         width: 30px;
         height: 30px;
+        image-rendering: pixelated;
     }
 }

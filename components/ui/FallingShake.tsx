@@ -3,6 +3,8 @@ import Image from 'next/image';
 import { motion } from "motion/react"
 import { useMemo } from 'react';
 
+import MPoints from '@/public/points/mpoints.png'
+
 import { useGameStore } from '@/store/useGameStore';
 
 export default function FallingShake(){
@@ -27,7 +29,7 @@ export default function FallingShake(){
 
     return(
         <motion.div style={{left: config.left, scale: config.scale}} animate={{y: [-50, 700], rotate: 360}} transition={{duration: config.duration, delay: config.delay, repeat: Infinity, ease: 'linear'}} className={styles.fallingShake}>
-            <Image src="/points/mpoints.png" alt="Falling Shake" className={styles.fallingShakeImg} width={50} height={50} />
+            <Image src={MPoints} alt="Falling Shake" className={styles.fallingShakeImg} width={50} height={50} />
         </motion.div>
     )
 }

@@ -9,9 +9,11 @@ import styles from './BoosterButton.module.css'
 
 export default function BoosterButton({ boosterId, boosterImage, boosterCost, boosterActive, handleClickButton}: {boosterId: number, boosterImage: string | StaticImageData, boosterCost: number, boosterActive: boolean, handleClickButton: () => void}) {
     return(
-        <button 
+        <motion.button 
             onClick={handleClickButton}
-            className={styles.boosterButton}
+            className={styles.boosterButton} 
+            whileHover={{scale: 1.1, rotate: 5}}
+            whileTap={{scale: 0.9}}
         >
             <Image 
                 className={`${styles.buttonImage} ${boosterActive ? styles.buttonActive : styles.buttonInactive}`} 
@@ -21,6 +23,6 @@ export default function BoosterButton({ boosterId, boosterImage, boosterCost, bo
             <motion.div className={styles.message} initial={{opacity: 0, y: -10}} whileHover={{opacity: 1, y: 0}} transition={{duration: 0.3}}>
                 <span>{boosterCost}</span><Image className={styles.batidoCoin} src={mPoints} alt="" height={24} width={24} />
             </motion.div> 
-        </button>
+        </motion.button>
     )
 }

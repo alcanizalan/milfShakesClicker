@@ -7,8 +7,9 @@
     scroll-behavior: smooth;
     height: 100%;
     background-color: var(--red-milfshakes);
-    gap: 10px;
+    gap: 15px;
     padding: 10px 0 10px 0;
+    border-right: 5px solid black;
 }
 
 .sectionDrops::-webkit-scrollbar {
