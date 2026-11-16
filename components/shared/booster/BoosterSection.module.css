@@ -9,6 +9,7 @@
     grid-area: 2/3/3/4;
     position: relative;
     border-left: 5px solid black;
+    gap: 5px;
 
     & .blocked{
         position: absolute;

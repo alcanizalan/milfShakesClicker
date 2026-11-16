@@ -3,6 +3,14 @@
     width: 80px;
     position: relative;
 
+    & .buttonImage{
+        height: 100%;
+        width: 100%;
+        image-rendering: pixelated;
+        filter: contrast(1.4);
+        filter: saturate(1.2);
+    }
+
     & .show{
         display: inline-block;
     }
@@ -38,5 +46,5 @@
 }
 
 .buttonInactive{
-    filter: grayscale(0);
+    filter: grayscale(none);
 }

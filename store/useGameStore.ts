@@ -36,8 +36,9 @@ export const useGameStore = create<GameState>()(
             MPC: () => calculateMilfosPerClick(get().boosters),
             MPS: () => calculateMilfosPerSecond(get().drops),
 
-            //clickMilfo: () => set((state) => ({milfos: state.milfos + get().MPC()})),
-            clickMilfo: () => set((state) => ({milfos: state.milfos + get().MPS()+1})),
+            clickMilfo: () => set((state) => ({milfos: state.milfos + get().MPC()})),
+            
+            //clickMilfo: () => set((state) => ({milfos: state.milfos + get().MPS()+1})),
 
             addPasiveMilfos: (MPS) => {
                 set((state) => {

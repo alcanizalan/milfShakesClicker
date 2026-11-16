@@ -38,15 +38,15 @@ export default function MilfoSection () {
                 <div className={styles.divError}>
                     <p className={styles.pError}></p>
                 </div>
-                <Image src={'/milfo/milfoclickv1_capa1.png'} className={`${styles.milfoImg} ${styles.milfoImg1}`} alt=""  width={700} height={700}/>
-                <Image src={'/milfo/milfoclickv1_capa2.png'} className={`${styles.milfoImg} ${styles.milfoImg2}`} alt=""  width={700} height={700}/>
+                <Image src={'/milfo/pixel/cloud_pixel1.png'} className={`${styles.milfoImg} ${styles.milfoImg1}`} alt=""  width={700} height={700}/>
+                <Image src={'/milfo/pixel/milfo_pixel2.png'} className={`${styles.milfoImg} ${styles.milfoImg2}`} alt=""  width={700} height={700}/>
                 {hasMounted && shakesArray.map((_, index) => (
                     <FallingShake key={index} />
                 ))}
-                <Image src={'/milfo/milfoclickv1_capa3.png'} className={`${styles.milfoImg} ${styles.milfoImg3}`} alt=""  width={700} height={700}/>
-                <Image src={'/milfo/milfoclickv1_capa4.png'} className={`${styles.milfoImg} ${styles.milfoImg4}`} alt=""  width={700} height={700}/>
-                <Image src={'/milfo/milfoclickv1_capa5.png'} className={`${styles.milfoImg} ${styles.milfoImg5}`} alt=""  width={700} height={700}/>
-                <Image src={'/milfo/milfoclickv1_capa6.png'} className={`${styles.milfoImg} ${styles.milfoImg6}`} alt=""  width={700} height={700}/>
+                <Image src={'/milfo/pixel/cloud_pixel3.png'} className={`${styles.milfoImg} ${styles.milfoImg3}`} alt=""  width={700} height={700}/>
+                <Image src={'/milfo/pixel/cloud_pixel4.png'} className={`${styles.milfoImg} ${styles.milfoImg4}`} alt=""  width={700} height={700}/>
+                <Image src={'/milfo/pixel/cloud_pixel5.png'} className={`${styles.milfoImg} ${styles.milfoImg5}`} alt=""  width={700} height={700}/>
+                <Image src={'/milfo/pixel/cloud_pixel6.png'} className={`${styles.milfoImg} ${styles.milfoImg6}`} alt=""  width={700} height={700}/>
             </div>
             <div className={styles.sectionCounter} >
                 <p className={styles.milfoPoints}>{formattedMilfos}</p>

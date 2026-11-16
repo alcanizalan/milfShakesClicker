@@ -1,20 +1,24 @@
 .dropButton{
     min-width: 300px;
-    width: 90%;
-    background-color: var(--white-shake);
+    width: 100%;
+    /* background-color: var(--white-shake); */
     position: relative;
     display: flex;
     flex-flow: column;
     border: none;
-    border-bottom: 5px solid #FFB9B9;
-    outline: 5px solid black;
+    /* border-bottom: 5px solid #FFB9B9; */
+    /* outline: 5px solid black; */
     transition: background-color .2s ease, border .2s ease, color .2s ease;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    image-rendering: pixelated;
 
     & .dropBlocked{
-        z-index: 5; 
+        z-index: 15; 
         width: 100%; 
         height: 100%; 
-        background-color: rgba(70, 11, 11, 0.795); 
+        /* background-color: rgba(70, 11, 11, 0.795); */
         position: absolute; 
         display: flex;
         justify-content: center;
@@ -23,6 +27,10 @@
         font-weight: 700;
         font-size: 36px;
         gap: 5px;
+        image-rendering: pixelated;
+        background-image: url('/ui/dropButtonblocked.png');
+        background-size: contain;
+        
 
         & p{
             filter: drop-shadow(3px 3px 0px black);
@@ -40,79 +48,123 @@
         display: none;
     }
 
-    & .dropLevel{
-        height: 80px;
-        width: 80px;
-        position: absolute;
-        left: 82%;
-        top: -3px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: rgb(255, 255, 255);
-        font-size: 18px;
-        background: var(--red-milfshakes);
-        border-top: 3px solid white;
-        border-radius: 20px;
+    
+
+
+    & .backgroundImage{
+        width: 100%;
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
-        font-weight: 700;
-        clip-path: polygon(20% 0%, 80% 0%, 80% 100%, 50% 80%, 20% 100%);
-        transition: height .3s ease;
-        z-index: 10;
-        font-family: var(--silkscreen-regular);
-        letter-spacing: -3px;
-
-        & p{
-            filter: drop-shadow(2px 2px 0px black);
-        }
-
-        
+        image-rendering: pixelated;
+        z-index: 1;
     }
 
-    & .dropInfo{
+    & .dropImageContainer{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        left: 0;
 
-        & .dropImg{
-            width: auto;
-            height: 70%;
-            margin: 15px 10px 5px 10px;
-            overflow: hidden;
+        & .dropImage{
+            width: 90%;
+            padding-top: 10px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
             image-rendering: pixelated;
-            outline: 5px solid black;
         }
+    }
+    
 
-        & .dropNames{
+    & .dropContent{
+        position: absolute;
+        z-index: 10;
+        display: grid;
+        grid-template-rows: 2fr 1fr;
+        height: 100%;
+        width: 100%;
+        font-size: 22px;
+        padding: 0 15px;
+
+        & .dropLevelContainer{
+            width: 100%;
+            height: 100%;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            padding: 0 10px;
-            color: var(--red-milfshakes);
-            font-size: 18px;
-            font-weight: 700;
 
-            & .unknownLevel{
-                display: flex; 
+            & .dropLevel{
+                height: fit-content;
+                width: 15%;
+                position: absolute;
+                left: 82%;
+                top: -5px;
+                display: flex;
+                justify-content: center;
                 align-items: center;
+                color: rgb(255, 255, 255);
+                /* background: var(--red-milfshakes); */
+                /* border-top: 3px solid white; */
+                font-weight: 700;
+                /* clip-path: polygon(20% 0%, 80% 0%, 80% 100%, 50% 80%, 20% 100%); */
+                z-index: 10;
                 font-family: var(--silkscreen-regular);
                 letter-spacing: -3px;
-                gap: 5px;
 
-                & .imagePoints{
+                & .dropLevelBackground{
+                    width: 100%;
+                    height: 100%;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-position: center;
                     image-rendering: pixelated;
+                }
+
+                & p{
+                    filter: drop-shadow(2px 2px 0px black);
+                    position: absolute;
                 }
             }
         }
-    }
 
-    &:hover{
-        background-color: #d8d8d8;
-        border-bottom: 5px solid #b3b3b3;
-        color: var(--red-milfshakes);
-    }
+        & .dropInfoContainer{
+            width: 100%;
+            height: 100%;
+            display: flex;
 
-    &:hover .dropLevel{
-        height: 100px;
+            & .dropInfo{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                padding: 0 15px;
+
+                & .dropNames{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    color: var(--red-milfshakes);
+                    font-weight: 700;
+                }
+
+                & .costUpgrade{
+                    display: flex; 
+                    align-items: center;
+                    font-family: var(--silkscreen-regular);
+                    color: var(--red-milfshakes);
+                    letter-spacing: -3px;
+                    gap: 5px;
+
+                    & .imagePoints{
+                        image-rendering: pixelated;
+                    }
+                }
+            }
+        }
     }
 }
 

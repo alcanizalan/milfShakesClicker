@@ -7,8 +7,8 @@
     scroll-behavior: smooth;
     height: 100%;
     background-color: var(--red-milfshakes);
-    gap: 15px;
-    padding: 10px 0 10px 0;
+    gap: 10px;
+    padding: 10px;
     border-right: 5px solid black;
 }
 

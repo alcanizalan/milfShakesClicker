@@ -22,7 +22,7 @@ export default function Main() {
   useEffect(() => {
     const audio = new Audio('/songs/background_song1.mp3');
     audio.loop = true;
-    audio.volume = 0.0;
+    audio.volume = 0.05;
     const startAfterInteraction = () => {
       window.removeEventListener('pointerdown', startAfterInteraction);
       window.removeEventListener('keydown', startAfterInteraction);
